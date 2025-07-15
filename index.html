@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofoliu UI/UX | Acasă</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .testimonial-slider {
+            transition: transform 0.5s ease;
+        }
+        .skill-progress {
+            transition: width 1s ease-in-out;
+        }
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20workspace%20with%20computer%2C%20soft%20natural%20light%2C%20clean%20desk%20setup%2C%20neutral%20colors%2C%20plants%2C%20creative%20atmosphere%2C%20professional%20environment%2C%20high-end%20design%2C%20blurred%20background%2C%20perfect%20for%20UI%2FUX%20designer%20portfolio%20hero%20section%2C%20left%20side%20empty%20for%20text%20overlay&width=1920&height=1080&seq=hero123&orientation=landscape');
+            background-size: cover;
+            background-position: right center;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        .linkedin:hover { color: #0077b5; }
+        .github:hover { color: #333; }
+        .instagram:hover { color: #e1306c; }
+        .twitter:hover { color: #1da1f2; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link active text-gray-800 hover:text-primary transition-colors">Acasă</a>
+                <a href="#portfolio" class="nav-link text-gray-800 hover:text-primary transition-colors">Portofoliu</a>
+                <a href="#about" class="nav-link text-gray-800 hover:text-primary transition-colors">Despre</a>
+                <a href="#contact" class="nav-link text-gray-800 hover:text-primary transition-colors">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700" id="mobile-menu-button">
+                <i class="ri-menu-line ri-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-md" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#" class="text-gray-800 hover:text-primary transition-colors py-2">Acasă</a>
+                <a href="#portfolio" class="text-gray-800 hover:text-primary transition-colors py-2">Portofoliu</a>
+                <a href="#about" class="text-gray-800 hover:text-primary transition-colors py-2">Despre</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-20 md:pt-40 md:pb-32">
+        <div class="container mx-auto px-6 w-full">
+            <div class="w-full md:w-1/2 bg-white bg-opacity-90 p-8 md:p-12 rounded-lg shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Design UI/UX de excepție pentru proiectul tău</h1>
+                <p class="text-lg text-gray-700 mb-8">Transformă viziunea ta într-o experiență digitală captivantă cu soluții de design moderne și intuitive.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#portfolio" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Vezi portofoliul</a>
+                    <a href="#contact" class="border-2 border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-primary/5 transition-colors whitespace-nowrap">Contactează-mă</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Servicii oferite</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-layout-4-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design UI</h3>
+                    <p class="text-gray-600">Interfețe intuitive și estetice care captivează utilizatorii și reflectă identitatea brandului tău.</p>
+                </div>
+                
+                <div class="p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-user-heart-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design UX</h3>
+                    <p class="text-gray-600">Experiențe digitale fluide și plăcute, bazate pe cercetare și centrate pe nevoile utilizatorilor.</p>
+                </div>
+                
+                <div class="p-8 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="ri-code-s-slash-line ri-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Prototipare</h3>
+                    <p class="text-gray-600">Transformarea conceptelor în prototipuri interactive pentru testare și validare înainte de implementare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Portofoliu recent</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">O selecție din cele mai recente proiecte UI/UX care demonstrează abordarea mea în crearea de experiențe digitale memorabile.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20e-commerce%20mobile%20app%20UI%20design%2C%20minimalist%20product%20page%2C%20clean%20interface%2C%20shopping%20cart%2C%20payment%20options%2C%20high-end%20fashion%20products%2C%20professional%20UI%2FUX%20design&width=600&height=400&seq=proj1&orientation=landscape" alt="E-commerce App" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Fashionista - Aplicație E-commerce</h3>
+                        <p class="text-gray-600 mb-4">Redesign complet al interfeței pentru o experiență de cumpărare intuitivă și elegantă.</p>
+                        <a href="#" class="text-primary font-medium flex items-center hover:underline">
+                            Vezi studiul de caz
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=banking%20app%20dashboard%20UI%20design%2C%20financial%20statistics%2C%20transaction%20history%2C%20budget%20tracking%2C%20modern%20minimalist%20interface%2C%20professional%20fintech%20application%20design&width=600&height=400&seq=proj2&orientation=landscape" alt="Banking App" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">FinanceFlow - Aplicație Bancară</h3>
+                        <p class="text-gray-600 mb-4">Interfață modernă pentru gestionarea finanțelor personale cu focus pe accesibilitate.</p>
+                        <a href="#" class="text-primary font-medium flex items-center hover:underline">
+                            Vezi studiul de caz
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=fitness%20tracking%20app%20UI%20design%2C%20workout%20progress%2C%20health%20statistics%2C%20meal%20planning%2C%20modern%20minimalist%20interface%2C%20activity%20dashboard%2C%20professional%20health%20application%20design&width=600&height=400&seq=proj3&orientation=landscape" alt="Fitness App" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">FitTrack - Aplicație Fitness</h3>
+                        <p class="text-gray-600 mb-4">Design intuitiv pentru monitorizarea activității fizice și a progresului personal.</p>
+                        <a href="#" class="text-primary font-medium flex items-center hover:underline">
+                            Vezi studiul de caz
+                            <i class="ri-arrow-right-line ri-sm ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-button font-medium hover:bg-primary/5 transition-colors whitespace-nowrap">Vezi toate proiectele</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Competențe</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Setul meu de abilități tehnice și creative care îmi permit să creez experiențe digitale de excepție.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- UI/UX Skills -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-8 flex items-center">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                            <i class="ri-paint-brush-line ri-lg text-primary"></i>
+                        </div>
+                        UI/UX Design
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Wireframing</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Prototipare</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">User Research</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Usability Testing</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-8 flex items-center">
+                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                            <i class="ri-tools-line ri-lg text-primary"></i>
+                        </div>
+                        Instrumente
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Figma</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Adobe XD</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Sketch</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Photoshop</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="skill-progress h-full bg-primary rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-2/5">
+                    <img src="https://readdy.ai/api/search-image?query=professional%20UI%2FUX%20designer%20working%20at%20desk%2C%20side%20profile%2C%20creative%20workspace%2C%20modern%20office%2C%20natural%20lighting%2C%20plants%2C%20minimalist%20style%2C%20high-end%20design%20environment&width=600&height=800&seq=about1&orientation=portrait" alt="Designer Portrait" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                
+                <div class="w-full md:w-3/5">
+                    <h2 class="text-3xl font-bold mb-6">Despre mine</h2>
+                    <p class="text-gray-700 mb-4">Salut! Sunt un designer UI/UX pasionat cu peste 6 ani de experiență în crearea de experiențe digitale captivante și intuitive. Abordarea mea combină principiile solide de design cu o înțelegere profundă a comportamentului utilizatorilor.</p>
+                    <p class="text-gray-700 mb-4">Specializat în proiecte pentru e-commerce, fintech și aplicații de sănătate, am colaborat cu startupuri ambițioase și companii consacrate pentru a transforma ideile lor în produse digitale de succes.</p>
+                    <p class="text-gray-700 mb-6">Cred că designul excelent rezultă din cercetare meticuloasă, iterație constantă și o atenție deosebită la detalii. Fiecare proiect este o oportunitate de a crea ceva care nu doar arată bine, ci funcționează impecabil.</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Contactează-mă</a>
+                        <a href="RUSU Curriculum Vitae .pdf" class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-button font-medium hover:border-gray-400 transition-colors whitespace-nowrap flex items-center">
+                            <i class="ri-download-line ri-sm mr-2"></i>
+                            Descarcă CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Ce spun clienții</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Feedback-ul primit de la clienții cu care am colaborat în proiecte de design UI/UX.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="testimonial-slider flex transition-transform" id="testimonial-slider">
+                    <!-- Testimonial 1 -->
+                    <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                            <div class="text-primary opacity-20 absolute top-4 left-4">
+                                <i class="ri-double-quotes-l ri-3x"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <p class="text-gray-700 mb-6">Colaborarea a fost excepțională! Am primit un design modern și intuitiv pentru aplicația noastră fintech, care a depășit toate așteptările. Procesul a fost transparent și eficient.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                        <img src="https://readdy.ai/api/search-image?query=professional%20business%20man%20portrait%2C%20CEO%2C%2040s%2C%20confident%2C%20modern%20office%20background%2C%20high%20quality%20professional%20headshot&width=100&height=100&seq=test1&orientation=squarish" alt="Andrei Popescu" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Andrei Popescu</h4>
+                                        <p class="text-gray-600 text-sm">CEO, FinanceFlow</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                            <div class="text-primary opacity-20 absolute top-4 left-4">
+                                <i class="ri-double-quotes-l ri-3x"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <p class="text-gray-700 mb-6">Redesignul platformei noastre de e-commerce a dus la o creștere de 40% a conversiilor în primele două luni. Apreciez atenția la detalii și capacitatea de a înțelege exact nevoile utilizatorilor noștri.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                        <img src="https://readdy.ai/api/search-image?query=professional%20business%20woman%20portrait%2C%20marketing%20director%2C%2030s%2C%20confident%20smile%2C%20modern%20office%20background%2C%20high%20quality%20professional%20headshot&width=100&height=100&seq=test2&orientation=squarish" alt="Maria Ionescu" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Maria Ionescu</h4>
+                                        <p class="text-gray-600 text-sm">Director Marketing, Fashionista</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm relative">
+                            <div class="text-primary opacity-20 absolute top-4 left-4">
+                                <i class="ri-double-quotes-l ri-3x"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <p class="text-gray-700 mb-6">Am primit numeroase feedback-uri pozitive de la utilizatorii aplicației noastre de fitness după redesign. Interfața este acum mult mai intuitivă și plăcută, iar rata de retenție a crescut semnificativ.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                        <img src="https://readdy.ai/api/search-image?query=professional%20fitness%20coach%20portrait%2C%20product%20manager%2C%2030s%2C%20athletic%20build%2C%20confident%2C%20modern%20gym%20background%2C%20high%20quality%20professional%20headshot&width=100&height=100&seq=test3&orientation=squarish" alt="Mihai Dumitrescu" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Mihai Dumitrescu</h4>
+                                        <p class="text-gray-600 text-sm">Product Manager, FitTrack</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="flex justify-center mt-8">
+                    <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center mx-2 hover:border-primary transition-colors" id="prev-testimonial">
+                        <i class="ri-arrow-left-s-line ri-lg text-gray-700"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center mx-2 hover:border-primary transition-colors" id="next-testimonial">
+                        <i class="ri-arrow-right-s-line ri-lg text-gray-700"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Hai să colaborăm</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Ai un proiect în minte? Completează formularul de mai jos și voi reveni cu un răspuns în cel mai scurt timp.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nume</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Numele tău complet">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="adresa@exemplu.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subiect</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Subiectul mesajului">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mesaj</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Detalii despre proiectul tău..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="flex items-center">
+                                <div class="relative">
+                                    <input type="checkbox" class="opacity-0 absolute h-5 w-5">
+                                    <div class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center bg-white">
+                                        <svg class="w-3 h-3 text-primary fill-current hidden" viewBox="0 0 20 20">
+                                            <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="ml-2 text-gray-700">Sunt de acord cu politica de confidențialitate</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">Trimite mesajul</button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-xl font-semibold mb-6">Informații de contact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                    <i class="ri-map-pin-line ri-lg text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Adresă</h4>
+                                    <p class="text-gray-600">Strada Primăverii 42, București, România</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                    <i class="ri-mail-line ri-lg text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Email</h4>
+                                    <p class="text-gray-600">contact@designstudio.ro</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                    <i class="ri-phone-line ri-lg text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Telefon</h4>
+                                    <p class="text-gray-600">+40 721 234 567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold mb-6">Program de lucru</h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Luni - Vineri:</span>
+                                <span class="font-medium">09:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Sâmbătă:</span>
+                                <span class="font-medium">10:00 - 15:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Duminică:</span>
+                                <span class="font-medium">Închis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <!-- Upper Footer -->
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Column 1: Info -->
+                <div>
+                    <a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+                    <p class="text-gray-400 mb-6">Studio de design UI/UX specializat în crearea de experiențe digitale memorabile și intuitive pentru afaceri de toate dimensiunile.</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                <i class="ri-map-pin-line text-gray-400"></i>
+                            </div>
+                            <span class="text-gray-400">Strada Municipio 1 , Quarto VE</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                <i class="ri-mail-line text-gray-400"></i>
+                            </div>
+                            <span class="text-gray-400">daviderusu17@yahoo.com</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center mr-3">
+                                <i class="ri-phone-line text-gray-400"></i>
+                            </div>
+                            <span class="text-gray-400">+393478593182</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Linkuri rapide</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Acasă</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portofoliu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Despre</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Politica de confidențialitate</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Termeni și condiții</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Conectează-te</h3>
+                    <p class="text-gray-400 mb-6">Urmărește-mă pe rețelele sociale pentru ultimele proiecte și actualizări.</p>
+                    
+                    <div class="flex space-x-4 mb-8">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center social-icon linkedin">
+                            <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center social-icon github">
+                            <i class="ri-github-fill ri-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center social-icon instagram">
+                            <i class="ri-instagram-fill ri-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center social-icon twitter">
+                            <i class="ri-twitter-fill ri-lg"></i>
+                        </a>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-4">Abonează-te la newsletter</h3>
+                    <div class="flex">
+                        <input type="email" placeholder="Adresa ta de email" class="px-4 py-2 bg-gray-800 text-white border-none rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 w-full">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r !rounded-button hover:bg-primary/90 transition-colors whitespace-nowrap">Abonare</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Section -->
+        <div class="h-96 w-full relative">
+            <div class="absolute inset-0" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white p-4 rounded-lg shadow-lg">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 flex items-center justify-center mr-3">
+                        <i class="ri-map-pin-fill ri-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium">Design Studio</h4>
+                        <p class="text-sm">Strada Primăverii 42, București</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="bg-gray-950 py-6">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Design Studio. Toate drepturile rezervate.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Politica de confidențialitate</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Termeni și condiții</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition-colors">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="mobile-menu-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                } else {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                }
+            });
+        });
+    </script>
+
+    <script id="testimonial-slider-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('testimonial-slider');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+            
+            let currentSlide = 0;
+            const slideWidth = 100; // percentage
+            const totalSlides = slider.children.length;
+            const slidesToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+            const maxSlide = totalSlides - slidesToShow;
+            
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * (slideWidth / slidesToShow)}%)`;
+            }
+            
+            prevButton.addEventListener('click', function() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            });
+            
+            nextButton.addEventListener('click', function() {
+                if (currentSlide < maxSlide) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                const newSlidesToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+                if (newSlidesToShow !== slidesToShow) {
+                    location.reload(); // Simple solution to recalculate everything
+                }
+            });
+        });
+    </script>
+
+    <script id="custom-checkbox-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const svg = this.parentNode.querySelector('svg');
+                    if (this.checked) {
+                        svg.classList.remove('hidden');
+                    } else {
+                        svg.classList.add('hidden');
+                    }
+                });
+                
+                // Initial state
+                const svg = checkbox.parentNode.querySelector('svg');
+                if (checkbox.checked) {
+                    svg.classList.remove('hidden');
+                } else {
+                    svg.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <script id="skill-animation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Function to animate skill bars
+            function animateSkills() {
+                skillBars.forEach(bar => {
+                    if (isInViewport(bar)) {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    }
+                });
+            }
+            
+            // Initial animation
+            setTimeout(animateSkills, 500);
+            
+            // Animate on scroll
+            window.addEventListener('scroll', function() {
+                animateSkills();
+            });
+        });
+    </script>
+</body>
+</html>
